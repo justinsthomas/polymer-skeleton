@@ -48,6 +48,9 @@
     "xo": "0.18.2"
   },
   "dependencies": {
-    "@polymer/polymer": "LasaleFamine/polymer#3.0-preview"
+    "@polymer/polymer": "LasaleFamine/polymer#3.0-preview",
+    "create-action-types": "2.0.0",
+    "polymer-redux": "PolymerX/polymer-redux",
+    "redux": "3.7.2"
   }
 }
