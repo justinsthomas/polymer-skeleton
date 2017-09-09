@@ -6,12 +6,19 @@ import globalCss from './../../postcss/global.postcss';
 import css from './style.postcss';
 import template from './template.html';
 
-export default class PxApp extends PolymerElement {
+import reduxMixin from './../../lib/store/mixin';
+import {increment} from './store/actions';
+
+export default class PxApp extends reduxMixin(PolymerElement) {
 
   static get properties() {
     return {
       name: {
         type: String
+      },
+      currentCount: {
+        type: Number,
+        statePath: 'app'
       },
       someProp: {
         type: String,
@@ -37,6 +44,7 @@ export default class PxApp extends PolymerElement {
     // For testing the observer, remove me.
     setTimeout(() => {
       this.someProp = 'chaaaaaaange';
+      this.dispatch(increment());
       // Tested with WCT
       this.dispatchEvent(new CustomEvent('prop-changed'));
     }, 2000);
